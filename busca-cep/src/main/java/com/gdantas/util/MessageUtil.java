@@ -11,7 +11,7 @@ import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author Glauber M. Dantas (glauber.dantas@tvftecnologia.com.br) TVF Tecnologia
+ * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
 public class MessageUtil {

@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
- * @author Glauber M. Dantas (glauber.dantas@tvftecnologia.com.br) TVF Tecnologia
+ * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
 public class MasterDao {

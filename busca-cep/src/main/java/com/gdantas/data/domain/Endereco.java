@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author Glauber M. Dantas (glauber.dantas@tvftecnologia.com.br) TVF Tecnologia
+ * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
 @XmlRootElement

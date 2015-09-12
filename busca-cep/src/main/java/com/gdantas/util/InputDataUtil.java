@@ -6,7 +6,7 @@ package com.gdantas.util;
 
 
 /**
- * @author  Glauber M. Dantas (glauber.dantas@tvftecnologia.com.br) TVF Tecnologia
+ * @author  Glauber M. Dantas glauber.md@gmail.com
  */
 public class InputDataUtil {
 	

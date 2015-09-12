@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- * @author Glauber M. Dantas (glauber.dantas@tvftecnologia.com.br) TVF Tecnologia
+ * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
 @XmlRootElement

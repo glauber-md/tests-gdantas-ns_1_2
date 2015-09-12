@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -27,7 +28,7 @@ import com.gdantas.util.InputDataUtil;
 
 /**
  * JAXB + JSON
- * @author Glauber M. Dantas (glauber.dantas@tvftecnologia.com.br) TVF Tecnologia
+ * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
 @Path("testes/ws-ns1")
@@ -77,8 +78,14 @@ public class BuscaCepResource {
 	}
 	
 	@PUT
+	@Path("/ceps/{cep}")
+	public Endereco update(@NotNull @Valid final InCep in) {
+		return null;
+	}
+	
+	@POST
 	@Path("/ceps")
-	public Endereco addOrUpdate(@NotNull @Valid final InCep in) {
+	public Endereco add(@NotNull @Valid final InCep in) {
 		return null;
 	}
 }

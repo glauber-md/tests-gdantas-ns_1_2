@@ -16,6 +16,6 @@ CREATE TABLE endereco (
 	logradouro VARCHAR(100) NOT NULL,
 	numero VARCHAR(10) NOT NULL,
 	complemento VARCHAR(50) NULL,
-	bairro VARCHAR(50) NOT NULL,
+	bairro VARCHAR(50) NULL,
 	cidadeId INTEGER NOT NULL FOREIGN KEY REFERENCES cidade(id)
 );

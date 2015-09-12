@@ -13,10 +13,17 @@ import org.springframework.jdbc.core.RowMapper;
 import com.gdantas.data.domain.Endereco;
 
 /**
- * @author Glauber M. Dantas (glauber.dantas@tvftecnologia.com.br) TVF Tecnologia
+ * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
 public class EnderecoDao extends MasterDao {
+	
+	public List<Endereco> listAll() {
+		List<Endereco> enderecos = this.jdbcTemplate.query(
+				"SELECT a.id, a.cep, a.logradouro, a.numero, a.complemento, a.bairro, b.nome as cidade, c.sigla as estado FROM Endereco AS a INNER JOIN Cidade AS b ON b.id = a.cidadeId INNER JOIN Estado AS c ON c.id = b.estadoId", 
+				new EnderecoMapper());
+		return enderecos;
+	}
 	
 	public Endereco get(int id) {
 		List<Endereco> enderecos = this.jdbcTemplate.query(
@@ -32,8 +39,11 @@ public class EnderecoDao extends MasterDao {
 		return (enderecos != null && !enderecos.isEmpty()) ? enderecos.get(0) : null;
 	}
 	
-	public Endereco add(Endereco end) {
-		return null;
+	public int add(Endereco end) {
+		return this.jdbcTemplate.update(
+				"INSERT INTO Endereco(cep,logradouro,numero,complemento,bairro,cidadeId) VALUES(?,?,?,?,?,?)", 
+				end.getCep(), end.getRua(), end.getNumero(), end.getComplemento(), end.getBairro(), end.getCidade()
+		);
 	}
 	
 	public Endereco update(Endereco end) {

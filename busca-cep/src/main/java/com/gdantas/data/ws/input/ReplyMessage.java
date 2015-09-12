@@ -6,7 +6,7 @@ package com.gdantas.data.ws.input;
 import com.gdantas.data.enums.DefaultReplyCodes;
 
 /**
- * @author Glauber M. Dantas (glauber.dantas@tvftecnologia.com.br) TVF Tecnologia
+ * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
 public class ReplyMessage {

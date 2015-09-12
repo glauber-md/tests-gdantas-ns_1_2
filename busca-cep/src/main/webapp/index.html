@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>NS2 Test</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#enderecos').DataTable({
+	        "processing": true,
+	        "ajax": "http://localhost:8080/rest/testes/ws-ns1/ceps/01234999",
+	        "columns": [
+	            { "body": "id" },
+	            { "body": "cep" },
+	            { "body": "rua" },
+	            { "body": "numero" },
+	            { "body": "complemento" },
+	            { "body": "bairro" },
+	            { "body": "cidade" },
+	            { "body": "estado" }
+	        ]
+	    });
+	});
+</script>
+</head>
+<body>
+	<table id="enderecos" class="display">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Rua</th>
+				<th>Número</th>
+				<th>Complemento</th>
+				<th>Bairro</th>
+				<th>Cidade</th>
+				<th>Estado</th>
+			</tr>
+		</thead>
+
+		<tfoot>
+			<tr>
+				<th>ID</th>
+				<th>Rua</th>
+				<th>Número</th>
+				<th>Complemento</th>
+				<th>Bairro</th>
+				<th>Cidade</th>
+				<th>Estado</th>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>
