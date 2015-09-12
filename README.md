@@ -1,6 +1,6 @@
 # Gerenciador de CEP via API REST (tests-gdantas-ns_1_2)
 ## Visão Geral
-A aplicação web Java foi desenvolvida buscando seguir as boas práticas REST apresentadas no Rest API tutorial () para as operações de CRUD.
+A aplicação web Java foi desenvolvida buscando seguir as boas práticas REST apresentadas no [REST API Tutorial](http://www.restapitutorial.com/index.html) para as operações de CRUD.
 
 O projeto foi desenvolvido utilizando:
 * Spring Framework
