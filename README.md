@@ -37,7 +37,8 @@ O serviço busca um endereço cadastrado através do parâmetro CEP fornecido co
 
 Caso o CEP informado seja válido e não seja encontrado nenhum endereço correspondente, o serviço substitui os números do sufixo do CEP (3 últimos algarismos) por zero, da direita para a esquerda, até formar um CEP genérico (sufixo = "000").
 
-> URL: http://localhost:8080/rest/busca/ceps/{CEP}
+URL:
+> http://localhost:8080/rest/busca/ceps/{CEP}
 
 > Método HTTP: GET
 
