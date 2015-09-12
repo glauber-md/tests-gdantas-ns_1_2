@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 
 import com.gdantas.data.access.EnderecoDao;
 import com.gdantas.data.domain.Endereco;
@@ -27,7 +28,7 @@ import com.gdantas.util.ResponseBuilder;
  * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
-@Path("testes/busca")
+@Path("busca")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class BuscaCepResource {
@@ -46,7 +47,11 @@ public class BuscaCepResource {
 			if(endereco == null) {
 				// Não encontrado; tentar alternativas
 				while(!encontrado && (cepAtual = InputDataUtil.getAlternativeCep(cepAtual)) != null) {
-					endereco = enderecoDao.getByCep(cepAtual);
+					try {
+						endereco = enderecoDao.getByCep(cepAtual);
+					} catch (DataAccessException e) {
+						return ResponseBuilder.error(new ReplyMessage(DefaultReplyCodes.FALHA_GENERICA, "Falha na consulta"));
+					}
 					// Retorna ao encontrar endereço
 					if(endereco != null)
 						encontrado = true;

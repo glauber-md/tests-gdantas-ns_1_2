@@ -33,4 +33,8 @@ public class ResponseBuilder {
 	public static Response created(URI location, Object data) {
 		return Response.status(Status.CREATED).entity(data).location(location).build();
 	}
+	
+	public static Response error(Object data) {
+		return Response.status(Status.INTERNAL_SERVER_ERROR).entity(data).build();
+	}
 }
