@@ -28,15 +28,15 @@ As operações de CRUD do CEP estão acessíveis através das seguintes URLs ass
 ### POST (Create)
 * URL: http://localhost:8080/rest/testes/ws-ns1/ceps/
 * Payload de exemplo: 
-> {
-   "cep": "01234999",
-   "rua": "Rua Fictícia da Silva",
-   "numero": "1234",
-   "complemento": "Casa A"
-   "bairro": "Vila Cenomatográfica",
-   "cidade": "Rio de Janeiro",
-   "estado": "RJ"
-}
+    {
+      "cep": "01234999",
+      "rua": "Rua Fictícia da Silva",
+      "numero": "1234",
+      "complemento": "Casa A"
+      "bairro": "Vila Cenomatográfica",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ"
+    }
 
 ### GET (Read)
 * URL: http://localhost:8080/rest/testes/ws-ns1/ceps/{CEP}
@@ -44,15 +44,15 @@ As operações de CRUD do CEP estão acessíveis através das seguintes URLs ass
 ### PUT (Update)
 * URL: http://localhost:8080/rest/testes/ws-ns1/ceps/{CEP}
 * Payload de exemplo: 
-> {
-   "cep": "01234999",
-   "rua": "Rua Fictícia da Silva",
-   "numero": "1234",
-   "complemento": "Casa A"
-   "bairro": "Vila Cenomatográfica",
-   "cidade": "Rio de Janeiro",
-   "estado": "RJ"
-}
+    {
+      "cep": "01234999",
+      "rua": "Rua Fictícia da Silva",
+      "numero": "1234",
+      "complemento": "Casa A"
+      "bairro": "Vila Cenomatográfica",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ"
+    }
 
 ### DELETE (Delete)
 * URL: http://localhost:8080/rest/testes/ws-ns1/ceps/{CEP}
