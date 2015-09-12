@@ -3,14 +3,11 @@
  */
 package com.gdantas.data.domain;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Glauber M. Dantas glauber.md@gmail.com
  *
  */
-@XmlRootElement
 public class Endereco {
 
 	public Endereco() {}
@@ -24,22 +21,22 @@ public class Endereco {
 		this.estado = estado;
 	}
 	
-	@XmlElement
 	private Integer id;
-	@XmlElement
 	private String cep;
-	@XmlElement
 	private String rua;
-	@XmlElement
 	private String numero;
-	@XmlElement
 	private String complemento;
-	@XmlElement
 	private String bairro;
-	@XmlElement
 	private String cidade;
-	@XmlElement
 	private String estado;
+	
+	public boolean isValid() {
+		return (cep != null
+				&& rua != null
+				&& numero != null
+				&& cidade != null
+				&& estado != null);
+	}
 	
 	/**
 	 * @return the id

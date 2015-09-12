@@ -47,7 +47,10 @@ public class EnderecoDao extends MasterDao {
 	}
 	
 	public int update(Endereco end) {
-		return 0;
+		return this.jdbcTemplate.update(
+				"UPDATE Endereco SET cep = ?,logradouro = ?,numero = ?,complemento = ?,bairro = ?,cidadeId = ? WHERE id = ?", 
+				end.getCep(), end.getRua(), end.getNumero(), end.getComplemento(), end.getBairro(), end.getCidade()
+		);
 	}
 	
 	public int delete(int id) {
