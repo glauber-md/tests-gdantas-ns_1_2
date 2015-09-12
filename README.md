@@ -46,7 +46,8 @@ URL:
 
 Para as operações de CRUD, os seguintes serviços estão disponíveis:
 
-### POST (Create)
+### Create
+Método HTTP: POST
 URL: 
 > http://localhost:8080/rest/crud/enderecos
 
@@ -62,11 +63,13 @@ Payload de exemplo:
           "estado": "RJ"
         }
 
-### GET (Read)
+### Read
+Método HTTP: GET
 URL: 
 > http://localhost:8080/rest/crud/enderecos/{ID}
 
-### PUT (Update)
+### Update
+Método HTTP: PUT
 URL:
 > http://localhost:8080/rest/crud/enderecos/{ID}
 
@@ -82,7 +85,8 @@ Payload de exemplo:
           "estado": "RJ"
         }
 
-### DELETE (Delete)
+### Delete
+Método HTTP: DELETE
 URL:
 > http://localhost:8080/rest/crud/enderecos/{ID}
 
