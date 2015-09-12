@@ -37,19 +37,16 @@ O serviço busca um endereço cadastrado através do parâmetro CEP fornecido co
 
 Caso o CEP informado seja válido e não seja encontrado nenhum endereço correspondente, o serviço substitui os números do sufixo do CEP (3 últimos algarismos) por zero, da direita para a esquerda, até formar um CEP genérico (sufixo = "000").
 
-URL:
-> http://localhost:8080/rest/busca/ceps/{CEP}
-
-> Método HTTP: GET
+* Método HTTP: GET
+* URL: http://localhost:8080/rest/busca/ceps/{CEP}
 
 ### Gerenciamento de Endereços (CRUD)
 
 Para as operações de CRUD, os seguintes serviços estão disponíveis:
 
 ### Create
-Método HTTP: POST
-URL: 
-> http://localhost:8080/rest/crud/enderecos
+* Método HTTP: POST
+* URL: http://localhost:8080/rest/crud/enderecos
 
 Payload de exemplo:
 
@@ -64,14 +61,12 @@ Payload de exemplo:
         }
 
 ### Read
-Método HTTP: GET
-URL: 
-> http://localhost:8080/rest/crud/enderecos/{ID}
+* Método HTTP: GET
+* URL: http://localhost:8080/rest/crud/enderecos/{ID}
 
 ### Update
-Método HTTP: PUT
-URL:
-> http://localhost:8080/rest/crud/enderecos/{ID}
+* Método HTTP: PUT
+* URL: http://localhost:8080/rest/crud/enderecos/{ID}
 
 Payload de exemplo:
 
@@ -86,9 +81,8 @@ Payload de exemplo:
         }
 
 ### Delete
-Método HTTP: DELETE
-URL:
-> http://localhost:8080/rest/crud/enderecos/{ID}
+* Método HTTP: DELETE
+* URL http://localhost:8080/rest/crud/enderecos/{ID}
 
 ## Testes
 ### GUI (SoapUI)
