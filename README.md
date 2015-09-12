@@ -1,4 +1,5 @@
-# Gerenciador de CEP via API REST (tests-gdantas-ns_1_2)
+# Busca de Endereços através de CEP e Gerenciamento de Endereços via API REST
+
 ## Visão Geral
 A aplicação web Java foi desenvolvida buscando seguir as boas práticas REST apresentadas no [REST API Tutorial](http://www.restapitutorial.com/index.html) para as operações de CRUD.
 
@@ -10,7 +11,10 @@ O projeto foi desenvolvido utilizando:
 * JUnit & Mockito
 * Jetty - Servidor HTTP/Servlet Container
 
-O objetivo é efetuar operações de CRUD de informações de endereço através de uma API REST.
+## Funcionalidades
+A aplicação possui 2 principais funcionalidades:
+* Um serviço para efetuar a busca de um endereço através do CEP fornecido.
+* Serviços que efetuam o gerenciamento da informação de endereço.
 
 ## Build
 Para se efetuar o build, iniciar o servidor e implementar (deploy) a aplicação, basta executar o comando:
@@ -24,13 +28,29 @@ O servidor estará pronto para receber requisições quando o log exibir a infor
 ## Utilização
 
 Após a inicialização do servidor, a aplicação estará acessível através da URL:
-> http://localhost:8080/rest/testes/ws-ns1
+> http://localhost:8080/rest
 
-As operações de CRUD do CEP estão acessíveis através das seguintes URLs associadas aos respectivos verbos HTTP:
+### Busca de Endereço por CEP
+
+O serviço busca um endereço cadastrado através do parâmetro CEP fornecido com 8 dígitos. Exemplo:
+> 01234999
+
+Caso o CEP informado seja válido e não seja encontrado nenhum endereço correspondente, o serviço substitui os números do sufixo do CEP (3 últimos algarismos) por zero, da direita para a esquerda, até formar um CEP genérico (sufixo = "000").
+
+> URL: http://localhost:8080/rest/busca/ceps/{CEP}
+
+> Método HTTP: GET
+
+### Gerenciamento de Endereços (CRUD)
+
+Para as operações de CRUD, os seguintes serviços estão disponíveis:
 
 ### POST (Create)
-* URL: http://localhost:8080/rest/testes/ws-ns1/ceps/
-* Payload de exemplo: 
+URL: 
+> http://localhost:8080/rest/crud/enderecos
+
+Payload de exemplo:
+
         {
           "cep": "01234999",
           "rua": "Rua Fictícia da Silva",
@@ -42,11 +62,15 @@ As operações de CRUD do CEP estão acessíveis através das seguintes URLs ass
         }
 
 ### GET (Read)
-* URL: http://localhost:8080/rest/testes/ws-ns1/ceps/{CEP}
+URL: 
+> http://localhost:8080/rest/crud/enderecos/{ID}
 
 ### PUT (Update)
-* URL: http://localhost:8080/rest/testes/ws-ns1/ceps/{CEP}
-* Payload de exemplo: 
+URL:
+> http://localhost:8080/rest/crud/enderecos/{ID}
+
+Payload de exemplo:
+
         {
           "cep": "01234999",
           "rua": "Rua Fictícia da Silva",
@@ -58,7 +82,8 @@ As operações de CRUD do CEP estão acessíveis através das seguintes URLs ass
         }
 
 ### DELETE (Delete)
-* URL: http://localhost:8080/rest/testes/ws-ns1/ceps/{CEP}
+URL:
+> http://localhost:8080/rest/crud/enderecos/{ID}
 
 ## Testes
 ### GUI (SoapUI)
