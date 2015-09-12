@@ -10,6 +10,8 @@ O projeto foi desenvolvido utilizando:
 * JUnit & Mockito
 * Jetty - Servidor HTTP/Servlet Container
 
+O objetivo é efetuar operações de CRUD de informações de endereço através de uma API REST.
+
 ## Build
 Para se efetuar o build, iniciar o servidor e implementar (deploy) a aplicação, basta executar o comando:
 
