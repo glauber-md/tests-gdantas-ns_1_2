@@ -7,6 +7,7 @@ O projeto foi desenvolvido utilizando:
 * Banco de dados HSQL embedded
 * Jersey RESTful API (JAX-RS)
 * Maven 
+* JUnit & Mockito
 * Jetty - Servidor HTTP/Servlet Container
 
 ## Build
