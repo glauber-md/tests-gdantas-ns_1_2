@@ -52,10 +52,10 @@ Payload de exemplo:
 
         {
           "cep": "01234999",
-          "rua": "Rua Fictícia da Silva",
+          "rua": "Rua Ficticia da Silva",
           "numero": "1234",
-          "complemento": "Casa A"
-          "bairro": "Vila Cenomatográfica",
+          "complemento": "Casa A",
+          "bairro": "Vila Cinematografica",
           "cidade": "Rio de Janeiro",
           "estado": "RJ"
         }
@@ -72,10 +72,10 @@ Payload de exemplo:
 
         {
           "cep": "01234999",
-          "rua": "Rua Fictícia da Silva",
+          "rua": "Rua Ficticia da Silva",
           "numero": "1234",
-          "complemento": "Casa A"
-          "bairro": "Vila Cenomatográfica",
+          "complemento": null,
+          "bairro": null,
           "cidade": "Rio de Janeiro",
           "estado": "RJ"
         }
