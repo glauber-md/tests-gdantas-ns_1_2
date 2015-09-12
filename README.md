@@ -61,6 +61,7 @@ As operações de CRUD do CEP estão acessíveis através das seguintes URLs ass
 ### GUI (SoapUI)
 Através do [SoapUI](http://www.soapui.org/downloads/soapui/open-source.html), pode-se importar o arquivo WADL a seguir para se efetuar os testes da API REST:
 > http://localhost:8080/rest/application.wadl
+
 ### Unitário (JUnit)
 A aplicação pode ser testada utilizando-se o comando:
 > mvn test
