@@ -13,22 +13,22 @@ public class ReplyMessage {
 	
 	private int code;
 	private String message;
-	private Object body;
+	private Object data;
 	
 	public ReplyMessage() {}
 	
-	public ReplyMessage(DefaultReplyCodes replyCode, Object body) {
+	public ReplyMessage(DefaultReplyCodes replyCode, Object data) {
 		if(replyCode != null) { 
 			this.code = replyCode.getCode();
 			this.message = replyCode.getDescription();
 		}
-		this.body = body;
+		this.data = data;
 	}
 	
-	public ReplyMessage(int code, String msg, Object body) {
+	public ReplyMessage(int code, String msg, Object data) {
 		this.code = code;
 		this.message = msg;
-		this.body = body;
+		this.data = data;
 	}
 	
 	/**
@@ -58,14 +58,14 @@ public class ReplyMessage {
 	/**
 	 * @return the body
 	 */
-	public Object getBody() {
-		return body;
+	public Object getData() {
+		return data;
 	}
 	/**
-	 * @param body the body to set
+	 * @param data the body to set
 	 */
-	public void setBody(Object body) {
-		this.body = body;
+	public void setData(Object data) {
+		this.data = data;
 	}
 	
 }

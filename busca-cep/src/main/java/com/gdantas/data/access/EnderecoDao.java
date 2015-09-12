@@ -46,8 +46,8 @@ public class EnderecoDao extends MasterDao {
 		);
 	}
 	
-	public Endereco update(Endereco end) {
-		return null;
+	public int update(Endereco end) {
+		return 0;
 	}
 	
 	public int delete(int id) {

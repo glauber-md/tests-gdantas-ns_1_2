@@ -16,6 +16,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,6 +26,7 @@ import com.gdantas.data.enums.DefaultReplyCodes;
 import com.gdantas.data.ws.input.InCep;
 import com.gdantas.data.ws.input.ReplyMessage;
 import com.gdantas.util.InputDataUtil;
+import com.gdantas.util.ResponseBuilder;
 
 /**
  * JAXB + JSON
@@ -40,7 +42,7 @@ public class BuscaCepResource {
 	
 	@GET
 	@Path("/ceps/{cep}")
-	public ReplyMessage get(@PathParam("cep") final String cep) {
+	public Response get(@PathParam("cep") final String cep) {
 		Endereco endereco = null;
 		String cepAtual = cep;
 		boolean encontrado = false;
@@ -59,33 +61,43 @@ public class BuscaCepResource {
 				encontrado = true;
 			}
 		} else {
-			return new ReplyMessage(DefaultReplyCodes.FORMATO_ENTRADA_INVALIDO, MessageFormat.format("CEP inválido: {0}", cep));
+			return ResponseBuilder.badRequest(new ReplyMessage(DefaultReplyCodes.FORMATO_ENTRADA_INVALIDO, MessageFormat.format("CEP inválido: {0}", cep)));
 		}
 		return encontrado ?
-				new ReplyMessage(DefaultReplyCodes.SUCESSO, endereco)
-				: new ReplyMessage(DefaultReplyCodes.NAO_ENCONTRADO, MessageFormat.format("Endereço não encontrado para o CEP informado: {0}", cep));
+				ResponseBuilder.success(new ReplyMessage(DefaultReplyCodes.SUCESSO, endereco))
+				: ResponseBuilder.notFound(new ReplyMessage(DefaultReplyCodes.NAO_ENCONTRADO, MessageFormat.format("Endereço não encontrado para o CEP informado: {0}", cep)));
 	}
 	
 	@DELETE
 	@Path("/ceps/{cep}")
-	public ReplyMessage delete(@PathParam("cep") final String cep) {
+	public Response delete(@PathParam("cep") final String cep) {
 		int dbUpdated = enderecoDao.delete(0);
 		
 		if(dbUpdated <= 0)
-			return new ReplyMessage(DefaultReplyCodes.NAO_ENCONTRADO, "Exclusão não realizada");
+			return ResponseBuilder.notFound(new ReplyMessage(DefaultReplyCodes.NAO_ENCONTRADO, "Exclusão não realizada"));
 		
-		return new ReplyMessage(DefaultReplyCodes.SUCESSO, "Registro excluído com sucesso");
+		return ResponseBuilder.success(new ReplyMessage(DefaultReplyCodes.SUCESSO, "Registro excluído com sucesso"));
 	}
 	
 	@PUT
 	@Path("/ceps/{cep}")
-	public Endereco update(@NotNull @Valid final InCep in) {
-		return null;
+	public Response update(@NotNull @Valid final InCep in) {
+		int dbUpdated = enderecoDao.update(null);
+		
+		if(dbUpdated <= 0)
+			return ResponseBuilder.notFound(new ReplyMessage(DefaultReplyCodes.NAO_ENCONTRADO, "Atualização não realizada"));
+		
+		return ResponseBuilder.success(new ReplyMessage(DefaultReplyCodes.SUCESSO, "Registro atualizado com sucesso"));
 	}
 	
 	@POST
 	@Path("/ceps")
-	public Endereco add(@NotNull @Valid final InCep in) {
-		return null;
+	public Response add(@NotNull @Valid final InCep in) {
+		int dbUpdated = enderecoDao.add(null);
+		
+		if(dbUpdated <= 0)
+			return ResponseBuilder.notFound(new ReplyMessage(DefaultReplyCodes.NAO_ENCONTRADO, "Inserção não realizada"));
+		
+		return ResponseBuilder.success(new ReplyMessage(DefaultReplyCodes.SUCESSO, "Registro inserido com sucesso"));
 	}
 }
