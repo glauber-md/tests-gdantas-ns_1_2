@@ -46,6 +46,8 @@ Caso o CEP informado seja válido e não seja encontrado nenhum endereço corres
 Para as operações de CRUD, os seguintes serviços estão disponíveis:
 
 ### Create
+Cria um novo registro de endereço, utilizando o payload informado.
+
 * Método HTTP: POST
 * URL: http://localhost:8080/rest/crud/enderecos
 
@@ -62,10 +64,14 @@ Payload de exemplo:
         }
 
 ### Read
+Obtém o registro de endereço referenciado por {ID}.
+
 * Método HTTP: GET
 * URL: http://localhost:8080/rest/crud/enderecos/{ID}
 
 ### Update
+Atualiza o registro de endereço referenciado por {ID}, utilizando o payload informado.
+
 * Método HTTP: PUT
 * URL: http://localhost:8080/rest/crud/enderecos/{ID}
 
@@ -82,6 +88,8 @@ Payload de exemplo:
         }
 
 ### Delete
+Apaga o registro de endereço referenciado por {ID}.
+
 * Método HTTP: DELETE
 * URL http://localhost:8080/rest/crud/enderecos/{ID}
 
