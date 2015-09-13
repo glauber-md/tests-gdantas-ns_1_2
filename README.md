@@ -6,10 +6,11 @@ A aplicação web Java foi desenvolvida buscando seguir as boas práticas REST a
 O projeto foi desenvolvido utilizando:
 * Spring Framework
 * Banco de dados HSQL embedded
-* Jersey RESTful API (JAX-RS)
+* JAX-RS (Jersey RESTful API & Jackson)
 * Maven 
 * JUnit & Mockito
 * Jetty - Servidor HTTP/Servlet Container
+* Slf4j & Log4J 2 
 
 ## Funcionalidades
 A aplicação possui 2 principais funcionalidades:
