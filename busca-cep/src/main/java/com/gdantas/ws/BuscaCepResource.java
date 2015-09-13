@@ -13,6 +13,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
@@ -34,6 +36,7 @@ import com.gdantas.util.ResponseBuilder;
 public class BuscaCepResource {
 
 	private @Autowired EnderecoDao enderecoDao;
+	private static final Logger log = LoggerFactory.getLogger(BuscaCepResource.class);
 	
 	@GET
 	@Path("/ceps/{cep}")
@@ -50,6 +53,7 @@ public class BuscaCepResource {
 					try {
 						endereco = enderecoDao.getByCep(cepAtual);
 					} catch (DataAccessException e) {
+						log.error("SELECT não executado: {}", e.getMessage());
 						return ResponseBuilder.error(new ReplyMessage(DefaultReplyCodes.FALHA_GENERICA, "Falha na consulta"));
 					}
 					// Retorna ao encontrar endereço
