@@ -3,6 +3,8 @@
  */
 package com.gdantas.data.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * @author Glauber M. Dantas glauber.md@gmail.com
@@ -30,6 +32,7 @@ public class Endereco {
 	private String cidade;
 	private String estado;
 	
+	@JsonIgnore
 	public boolean isValid() {
 		return (cep != null
 				&& rua != null

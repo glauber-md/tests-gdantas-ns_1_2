@@ -3,6 +3,8 @@
  */
 package com.gdantas.data.ws.input;
 
+import javax.ws.rs.core.Response;
+
 import com.gdantas.data.enums.DefaultReplyCodes;
 
 /**
@@ -19,9 +21,16 @@ public class ReplyMessage {
 	
 	public ReplyMessage(DefaultReplyCodes replyCode, Object data) {
 		if(replyCode != null) { 
-			this.code = replyCode.getCode();
+			this.code = replyCode.getCode().getStatusCode();
 			this.message = replyCode.getDescription();
 		}
+		this.data = data;
+	}
+	
+	public ReplyMessage(Response.Status code, String msg, Object data) {
+		if(code != null)
+			this.code = code.getStatusCode();
+		this.message = msg;
 		this.data = data;
 	}
 	
